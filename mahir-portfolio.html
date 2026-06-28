@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mahir Ajmol Fahad — Full Stack Developer</title>
+<meta name="description" content="Full Stack Developer specializing in building production-ready SaaS products, web applications, and startup MVPs with Next.js, React, TypeScript, and Supabase." />
+<meta name="keywords" content="Next.js Developer, Full Stack Developer, React Developer, TypeScript, Supabase, SaaS Development, Startup MVP" />
+<meta property="og:title" content="Mahir Ajmol Fahad — Full Stack Developer" />
+<meta property="og:description" content="Building production-ready SaaS products for startups and founders." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F8FAFC;
+    --surface: #FFFFFF;
+    --surface-muted: #F1F5F9;
+    --border: #E2E8F0;
+    --border-strong: #CBD5E1;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --accent: #4F46E5;
+    --accent-light: #EEF2FF;
+    --accent-mid: #C7D2FE;
+    --accent-dark: #3730A3;
+    --radius-sm: 6px;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    font-size: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248, 250, 252, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 60px;
+  }
+  .nav-logo {
+    font-weight: 600; font-size: 15px; color: var(--text-primary);
+    text-decoration: none; letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 6px; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-secondary);
+    font-size: 14px; font-weight: 500; padding: 6px 12px;
+    border-radius: var(--radius-sm); transition: all 0.15s;
+  }
+  .nav-links a:hover { color: var(--text-primary); background: var(--surface-muted); }
+  .nav-cta {
+    background: var(--accent) !important; color: #fff !important;
+    padding: 7px 16px !important; border-radius: var(--radius-sm) !important;
+  }
+  .nav-cta:hover { background: var(--accent-dark) !important; }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 96px 0; }
+  section + section { padding-top: 0; }
+
+  /* HERO */
+  .hero { padding: 160px 0 96px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-light); border: 1px solid var(--accent-mid);
+    color: var(--accent); font-size: 13px; font-weight: 500;
+    padding: 5px 12px; border-radius: 100px; margin-bottom: 28px;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 700; line-height: 1.08;
+    letter-spacing: -0.04em; color: var(--text-primary);
+    max-width: 780px; margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub {
+    font-size: 18px; color: var(--text-secondary); max-width: 520px;
+    line-height: 1.65; margin-bottom: 36px; font-weight: 400;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 64px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; padding: 10px 20px;
+    border-radius: var(--radius-sm); text-decoration: none;
+    border: none; cursor: pointer; transition: all 0.15s;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--surface); color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-secondary:hover { background: var(--surface-muted); transform: translateY(-1px); }
+
+  /* HERO MOCKUP */
+  .hero-mockup {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-xl); overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(79,70,229,0.08);
+  }
+  .mockup-bar {
+    background: var(--surface-muted); border-bottom: 1px solid var(--border);
+    padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .mockup-dots { display: flex; gap: 6px; }
+  .mockup-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .dot-red { background: #FC5C65; }
+  .dot-yellow { background: #FED330; }
+  .dot-green { background: #26DE81; }
+  .mockup-url {
+    flex: 1; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 5px 12px;
+    font-size: 12px; color: var(--text-muted); text-align: center;
+    max-width: 280px;
+  }
+  .mockup-body { padding: 0; }
+  .mockup-sidebar {
+    width: 220px; background: #FAFAFA; border-right: 1px solid var(--border);
+    padding: 20px 0; flex-shrink: 0;
+  }
+  .mockup-layout { display: flex; height: 320px; }
+  .sidebar-item {
+    padding: 9px 20px; font-size: 13px; color: var(--text-secondary);
+    display: flex; align-items: center; gap: 10px; cursor: default;
+  }
+  .sidebar-item.active {
+    background: var(--accent-light); color: var(--accent); font-weight: 500;
+    border-right: 2px solid var(--accent);
+  }
+  .sidebar-icon {
+    width: 16px; height: 16px; border-radius: 3px;
+    background: currentColor; opacity: 0.3; flex-shrink: 0;
+  }
+  .sidebar-item.active .sidebar-icon { opacity: 1; background: var(--accent); }
+  .mockup-main { flex: 1; padding: 24px; overflow: hidden; }
+  .mockup-header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .mockup-title { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+  .mockup-btn-mini {
+    background: var(--accent); color: #fff; font-size: 11px; font-weight: 500;
+    padding: 5px 10px; border-radius: 5px;
+  }
+  .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
+  .stat-card {
+    background: var(--surface-muted); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px;
+  }
+  .stat-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+  .stat-value { font-size: 20px; font-weight: 700; color: var(--text-primary); }
+  .stat-delta { font-size: 11px; color: #16A34A; margin-top: 2px; }
+  .mini-chart { height: 80px; background: var(--surface-muted); border-radius: var(--radius-sm); overflow: hidden; position: relative; }
+  .chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 100%; padding: 12px 12px 12px; }
+  .chart-bar { flex: 1; background: var(--accent-mid); border-radius: 3px 3px 0 0; transition: background 0.2s; }
+  .chart-bar.highlight { background: var(--accent); }
+  .table-mini { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  .table-mini th { font-size: 11px; color: var(--text-muted); font-weight: 500; padding: 0 0 8px; text-align: left; }
+  .table-mini td { font-size: 12px; color: var(--text-secondary); padding: 7px 0; border-top: 1px solid var(--border); }
+  .table-mini td:first-child { color: var(--text-primary); font-weight: 500; }
+  .badge-status {
+    display: inline-block; padding: 2px 8px; border-radius: 100px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.02em;
+  }
+  .badge-paid { background: #DCFCE7; color: #15803D; }
+  .badge-pending { background: #FEF9C3; color: #854D0E; }
+  .badge-review { background: var(--accent-light); color: var(--accent-dark); }
+
+  /* SECTION LABELS */
+  .section-eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .section-heading {
+    font-size: clamp(28px, 3.5vw, 40px); font-weight: 700;
+    letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--text-secondary); max-width: 520px; line-height: 1.65;
+  }
+  .section-header { margin-bottom: 56px; }
+
+  /* STACK */
+  .stack-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .stack-badge {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 10px 18px; border-radius: var(--radius);
+    font-size: 14px; font-weight: 500; color: var(--text-primary);
+    transition: all 0.15s;
+  }
+  .stack-badge:hover {
+    border-color: var(--accent-mid); background: var(--accent-light);
+    color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79,70,229,0.1);
+  }
+  .stack-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* FEATURED PROJECT */
+  .project-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-xl); overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .project-header {
+    padding: 40px 48px 36px;
+    border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start;
+  }
+  .project-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent-light); color: var(--accent);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .project-name {
+    font-size: 32px; font-weight: 700; letter-spacing: -0.03em;
+    color: var(--text-primary); margin-bottom: 10px;
+  }
+  .project-desc {
+    font-size: 16px; color: var(--text-secondary); max-width: 480px; line-height: 1.65;
+  }
+  .project-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .project-meta { text-align: right; }
+  .project-stat { margin-bottom: 16px; }
+  .project-stat-value { font-size: 28px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.03em; }
+  .project-stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .project-features {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0; border-top: 1px solid var(--border);
+  }
+  .feature-item {
+    padding: 28px 32px;
+    border-right: 1px solid var(--border);
+  }
+  .feature-item:last-child { border-right: none; }
+  .feature-icon {
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    background: var(--accent-light); display: flex; align-items: center;
+    justify-content: center; margin-bottom: 14px;
+  }
+  .feature-icon svg { width: 18px; height: 18px; color: var(--accent); }
+  .feature-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+  .feature-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* CASE STUDY */
+  .case-study-grid {
+    display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start;
+  }
+  .case-nav { position: sticky; top: 80px; }
+  .case-nav-item {
+    display: block; padding: 10px 14px; font-size: 14px; font-weight: 500;
+    color: var(--text-secondary); text-decoration: none; border-radius: var(--radius-sm);
+    border-left: 2px solid transparent; transition: all 0.15s;
+  }
+  .case-nav-item:hover, .case-nav-item.active {
+    color: var(--accent); border-left-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .case-section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  .case-section-title {
+    font-size: 20px; font-weight: 600; color: var(--text-primary);
+    margin-bottom: 16px; letter-spacing: -0.02em;
+  }
+  .case-section p { font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px; }
+  .arch-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 16px; }
+  .arch-item {
+    background: var(--surface-muted); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 18px;
+  }
+  .arch-item-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+  .arch-item-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+  .result-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  .result-card {
+    background: var(--accent-light); border: 1px solid var(--accent-mid);
+    border-radius: var(--radius); padding: 20px;
+  }
+  .result-number { font-size: 32px; font-weight: 700; color: var(--accent); letter-spacing: -0.04em; }
+  .result-label { font-size: 13px; color: var(--accent-dark); margin-top: 4px; }
+  .challenge-list { list-style: none; }
+  .challenge-list li {
+    display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border);
+    font-size: 15px; color: var(--text-secondary); line-height: 1.6;
+  }
+  .challenge-list li:last-child { border-bottom: none; }
+  .challenge-list li::before {
+    content: '→'; color: var(--accent); font-weight: 600; flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .service-card {
+    background: var(--surface); padding: 32px;
+    transition: background 0.15s;
+  }
+  .service-card:hover { background: var(--accent-light); }
+  .service-number { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 20px; }
+  .service-title { font-size: 17px; font-weight: 600; color: var(--text-primary); margin-bottom: 10px; }
+  .service-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* PROCESS */
+  .process-steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; position: relative; }
+  .process-steps::before {
+    content: ''; position: absolute; top: 22px; left: 10%; right: 10%;
+    height: 1px; background: var(--border); z-index: 0;
+  }
+  .process-step { text-align: center; padding: 0 12px; position: relative; z-index: 1; }
+  .step-num {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--surface); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; color: var(--text-primary);
+    margin: 0 auto 16px; position: relative; z-index: 1;
+    transition: all 0.2s;
+  }
+  .process-step:hover .step-num {
+    background: var(--accent); color: #fff; border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-light);
+  }
+  .step-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 360px; gap: 64px; align-items: start; }
+  .about-text p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px; }
+  .about-text strong { color: var(--text-primary); font-weight: 600; }
+  .about-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px;
+  }
+  .about-card-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px; }
+  .skill-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .skill-chip {
+    background: var(--surface-muted); border: 1px solid var(--border);
+    padding: 5px 12px; border-radius: 100px;
+    font-size: 12px; font-weight: 500; color: var(--text-secondary);
+  }
+  .divider { width: 100%; height: 1px; background: var(--border); margin: 20px 0; }
+  .quick-stat { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+  .qs-label { font-size: 13px; color: var(--text-muted); }
+  .qs-value { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+
+  /* CONTACT */
+  .contact-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-xl); padding: 56px;
+    text-align: center; max-width: 680px; margin: 0 auto;
+  }
+  .contact-emoji { font-size: 40px; margin-bottom: 20px; }
+  .contact-heading { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 14px; }
+  .contact-sub { font-size: 16px; color: var(--text-secondary); margin-bottom: 36px; line-height: 1.65; }
+  .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface-muted); border: 1px solid var(--border);
+    padding: 12px 20px; border-radius: var(--radius);
+    font-size: 14px; font-weight: 500; color: var(--text-primary);
+    text-decoration: none; transition: all 0.15s;
+  }
+  .contact-link:hover {
+    border-color: var(--accent-mid); background: var(--accent-light);
+    color: var(--accent); transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border); padding: 28px 0;
+    background: var(--surface);
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 13px; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--text-secondary); }
+
+  /* DIVIDER SECTION */
+  .divider-section { padding: 0 0 0; }
+  .grid-divider { width: 100%; height: 1px; background: var(--border); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 120px 0 64px; }
+    .case-study-grid { grid-template-columns: 1fr; }
+    .case-nav { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-steps::before { display: none; }
+    .project-header { grid-template-columns: 1fr; }
+    .project-meta { text-align: left; }
+    .result-grid { grid-template-columns: 1fr; }
+    .mockup-sidebar { display: none; }
+    .contact-card { padding: 32px 24px; }
+    .feature-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .arch-grid { grid-template-columns: 1fr; }
+  }
+
+  /* TECH ICON DOTS */
+  .dot-next { background: #000; }
+  .dot-react { background: #61DAFB; }
+  .dot-ts { background: #3178C6; }
+  .dot-tailwind { background: #06B6D4; }
+  .dot-supabase { background: #3ECF8E; }
+  .dot-vercel { background: #000; }
+  .dot-github { background: #333; }
+
+  /* ICON SVG inline */
+  .icon { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Mahir<span>.</span></a>
+    <div class="nav-links">
+      <a href="#stack">Stack</a>
+      <a href="#project">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge fade-up">
+      <span class="hero-badge-dot"></span>
+      Available for new projects
+    </div>
+
+    <h1 class="fade-up delay-1">
+      Build your<br /><em>startup's product,</em><br />not just a website.
+    </h1>
+
+    <p class="hero-sub fade-up delay-2">
+      I'm Mahir Ajmol Fahad — a Full Stack Developer who turns founder ideas into production-ready SaaS applications. Fast, scalable, and built to last.
+    </p>
+
+    <div class="hero-actions fade-up delay-3">
+      <a href="#project" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        View my work
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        Contact me
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+
+    <!-- BROWSER MOCKUP -->
+    <div class="hero-mockup fade-up delay-4">
+      <div class="mockup-bar">
+        <div class="mockup-dots">
+          <div class="mockup-dot dot-red"></div>
+          <div class="mockup-dot dot-yellow"></div>
+          <div class="mockup-dot dot-green"></div>
+        </div>
+        <div class="mockup-url">clientflow-puce.vercel.app</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-layout">
+          <div class="mockup-sidebar">
+            <div class="sidebar-item">
+              <span class="sidebar-icon"></span> Dashboard
+            </div>
+            <div class="sidebar-item active">
+              <span class="sidebar-icon"></span> Clients
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-icon"></span> Invoices
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-icon"></span> Projects
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-icon"></span> Reports
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-icon"></span> Settings
+            </div>
+          </div>
+          <div class="mockup-main">
+            <div class="mockup-header-row">
+              <div class="mockup-title">Client Overview</div>
+              <div class="mockup-btn-mini">+ New Client</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-card">
+                <div class="stat-label">Active Clients</div>
+                <div class="stat-value">24</div>
+                <div class="stat-delta">↑ 3 this month</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Revenue</div>
+                <div class="stat-value">$12.4k</div>
+                <div class="stat-delta">↑ 18%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Open Invoices</div>
+                <div class="stat-value">7</div>
+                <div class="stat-delta" style="color:#D97706;">2 overdue</div>
+              </div>
+            </div>
+            <div class="mini-chart">
+              <div class="chart-bars">
+                <div class="chart-bar" style="height:40%"></div>
+                <div class="chart-bar" style="height:55%"></div>
+                <div class="chart-bar" style="height:45%"></div>
+                <div class="chart-bar" style="height:70%"></div>
+                <div class="chart-bar" style="height:60%"></div>
+                <div class="chart-bar highlight" style="height:85%"></div>
+                <div class="chart-bar" style="height:75%"></div>
+              </div>
+            </div>
+            <table class="table-mini">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Project</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acme Corp</td>
+                  <td>Dashboard Redesign</td>
+                  <td><span class="badge-status badge-paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>Nova Labs</td>
+                  <td>MVP Development</td>
+                  <td><span class="badge-status badge-review">In Review</span></td>
+                </tr>
+                <tr>
+                  <td>Bloom Co.</td>
+                  <td>API Integration</td>
+                  <td><span class="badge-status badge-pending">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Tech Stack</div>
+      <h2 class="section-heading">Built with the right tools.</h2>
+      <p class="section-sub">Every technology I use is production-tested and chosen because it ships fast and scales well.</p>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-badge"><span class="stack-dot dot-next"></span>Next.js</div>
+      <div class="stack-badge"><span class="stack-dot dot-react"></span>React</div>
+      <div class="stack-badge"><span class="stack-dot dot-ts"></span>TypeScript</div>
+      <div class="stack-badge"><span class="stack-dot dot-tailwind"></span>Tailwind CSS</div>
+      <div class="stack-badge"><span class="stack-dot dot-supabase"></span>Supabase</div>
+      <div class="stack-badge"><span class="stack-dot dot-vercel"></span>Vercel</div>
+      <div class="stack-badge"><span class="stack-dot dot-github"></span>GitHub</div>
+      <div class="stack-badge"><span class="stack-dot" style="background:#F05032;"></span>REST APIs</div>
+      <div class="stack-badge"><span class="stack-dot" style="background:#38BDF8;"></span>PostgreSQL</div>
+      <div class="stack-badge"><span class="stack-dot" style="background:#7C3AED;"></span>Auth & RLS</div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="grid-divider"></div></div>
+
+<!-- FEATURED PROJECT -->
+<section id="project" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Featured Project</div>
+      <h2 class="section-heading">One product, built right.</h2>
+      <p class="section-sub">I focus on depth over breadth. Here's the full picture of what I shipped.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-label">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+            Live Product
+          </div>
+          <div class="project-name">ClientFlow</div>
+          <p class="project-desc">
+            A client management SaaS built for freelancers and small agencies. Handles client onboarding, project tracking, invoicing, and reporting — everything needed to run a client business, in one place.
+          </p>
+          <div class="project-actions">
+            <a href="https://clientflow-puce.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+            <a href="#case-study" class="btn btn-secondary">Case Study →</a>
+          </div>
+        </div>
+        <div class="project-meta">
+          <div class="project-stat">
+            <div class="project-stat-value">100%</div>
+            <div class="project-stat-label">TypeScript coverage</div>
+          </div>
+          <div class="project-stat">
+            <div class="project-stat-value">&lt;2s</div>
+            <div class="project-stat-label">Time to First Byte</div>
+          </div>
+          <div class="project-stat">
+            <div class="project-stat-value">RLS</div>
+            <div class="project-stat-label">Row-level security</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-features">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="feature-title">Client management</div>
+          <div class="feature-desc">Structured onboarding flows, contact records, and project history per client.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="feature-title">Invoice generation</div>
+          <div class="feature-desc">Generate and track invoices with status updates and payment records.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="feature-title">Revenue reporting</div>
+          <div class="feature-desc">Real-time charts and metrics so you always know how the business is doing.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-title">Secure by default</div>
+          <div class="feature-desc">Supabase Auth with row-level security ensures full data isolation per user.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="grid-divider"></div></div>
+
+<!-- CASE STUDY -->
+<section id="case-study" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Case Study</div>
+      <h2 class="section-heading">How ClientFlow was built.</h2>
+      <p class="section-sub">A full breakdown of the product decisions, architecture, and lessons from building this SaaS.</p>
+    </div>
+
+    <div class="case-study-grid">
+      <nav class="case-nav" aria-label="Case study navigation">
+        <a href="#cs-problem" class="case-nav-item active">Problem</a>
+        <a href="#cs-solution" class="case-nav-item">Solution</a>
+        <a href="#cs-architecture" class="case-nav-item">Architecture</a>
+        <a href="#cs-features" class="case-nav-item">Features</a>
+        <a href="#cs-challenges" class="case-nav-item">Challenges</a>
+        <a href="#cs-results" class="case-nav-item">Results</a>
+        <a href="#cs-lessons" class="case-nav-item">Lessons</a>
+      </nav>
+
+      <div>
+        <div class="case-section" id="cs-problem">
+          <h3 class="case-section-title">Problem</h3>
+          <p>Freelancers and small agencies often juggle their client work across spreadsheets, email threads, and disconnected invoicing tools. There was no single tool that handled the full client lifecycle without being bloated or overpriced.</p>
+          <p>The goal was to build something that felt like a real product — not a prototype — that a small business could use on day one.</p>
+        </div>
+
+        <div class="case-section" id="cs-solution">
+          <h3 class="case-section-title">Solution</h3>
+          <p>ClientFlow is a focused SaaS application that covers client management, project tracking, and invoicing in a single, clean interface. The design philosophy was to remove friction at every step — from adding a new client to sending an invoice.</p>
+          <p>The product was built with Next.js App Router to take advantage of server components for fast initial loads, and Supabase for the backend — giving real-time capabilities and strong security via row-level security policies out of the box.</p>
+        </div>
+
+        <div class="case-section" id="cs-architecture">
+          <h3 class="case-section-title">Architecture</h3>
+          <p>The stack was chosen for shipping speed without sacrificing quality or scalability.</p>
+          <div class="arch-grid">
+            <div class="arch-item">
+              <div class="arch-item-label">Frontend</div>
+              <div class="arch-item-value">Next.js 14 App Router + TypeScript</div>
+            </div>
+            <div class="arch-item">
+              <div class="arch-item-label">Styling</div>
+              <div class="arch-item-value">Tailwind CSS + shadcn/ui</div>
+            </div>
+            <div class="arch-item">
+              <div class="arch-item-label">Backend</div>
+              <div class="arch-item-value">Supabase (Auth + PostgreSQL + RLS)</div>
+            </div>
+            <div class="arch-item">
+              <div class="arch-item-label">Deployment</div>
+              <div class="arch-item-value">Vercel Edge Network</div>
+            </div>
+            <div class="arch-item">
+              <div class="arch-item-label">State</div>
+              <div class="arch-item-value">Server Components + React Query</div>
+            </div>
+            <div class="arch-item">
+              <div class="arch-item-label">Security</div>
+              <div class="arch-item-value">Row-Level Security policies</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section" id="cs-features">
+          <h3 class="case-section-title">Features</h3>
+          <ul class="challenge-list">
+            <li>Full client directory with contacts, notes, and project history</li>
+            <li>Project tracking with statuses, milestones, and deadlines</li>
+            <li>Invoice creation with PDF export and payment status tracking</li>
+            <li>Revenue dashboard with monthly breakdowns and trend charts</li>
+            <li>Multi-user authentication with per-account data isolation</li>
+            <li>Fully responsive — works on mobile, tablet, and desktop</li>
+          </ul>
+        </div>
+
+        <div class="case-section" id="cs-challenges">
+          <h3 class="case-section-title">Challenges</h3>
+          <ul class="challenge-list">
+            <li>Designing Supabase RLS policies that were both secure and performant across complex relational queries</li>
+            <li>Building a data-fetching architecture that balanced server-side rendering with real-time client updates without over-fetching</li>
+            <li>Keeping the UI fast and responsive while handling complex form state across multi-step flows</li>
+            <li>Making the invoice PDF export work reliably across different browsers and paper sizes</li>
+          </ul>
+        </div>
+
+        <div class="case-section" id="cs-results">
+          <h3 class="case-section-title">Results</h3>
+          <div class="result-grid">
+            <div class="result-card">
+              <div class="result-number">&lt;2s</div>
+              <div class="result-label">Average page load time</div>
+            </div>
+            <div class="result-card">
+              <div class="result-number">100%</div>
+              <div class="result-label">TypeScript type coverage</div>
+            </div>
+            <div class="result-card">
+              <div class="result-number">0</div>
+              <div class="result-label">Security incidents since launch</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section" id="cs-lessons">
+          <h3 class="case-section-title">Lessons learned</h3>
+          <p>Building a full product end-to-end makes you think differently than building features for someone else's codebase. Every decision has a cost — whether it's build time, UX complexity, or maintenance burden.</p>
+          <p>Supabase's RLS is extremely powerful but requires careful upfront design. Getting the policy structure right before you have complex queries is much easier than retrofitting it later.</p>
+          <p>The App Router's server component model changed how I think about data fetching. Co-locating fetches with the components that need them, and letting the server do the heavy lifting, makes the codebase dramatically simpler.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="grid-divider"></div></div>
+
+<!-- SERVICES -->
+<section id="services" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Services</div>
+      <h2 class="section-heading">What I build for you.</h2>
+      <p class="section-sub">Production-ready development across the full stack — designed to move fast and built to last.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-title">SaaS Development</div>
+        <div class="service-desc">Full-featured SaaS products with authentication, billing, dashboards, and multi-tenancy. Built for real users from day one.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-title">Startup MVP</div>
+        <div class="service-desc">Take your idea from concept to a working product in weeks, not months. Focused on the features that matter for early traction.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-title">Admin Dashboards</div>
+        <div class="service-desc">Complex internal tools and data dashboards that give your team clarity and control. Fast to load, easy to use.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <div class="service-title">API Integration</div>
+        <div class="service-desc">Connect your product to third-party services — payments, CRMs, automation tools, and more — reliably and with error handling.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <div class="service-title">Auth & Security</div>
+        <div class="service-desc">Role-based access control, row-level security, and authentication flows that are secure without adding friction for your users.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <div class="service-title">Business Websites</div>
+        <div class="service-desc">Fast, responsive marketing sites and landing pages that convert visitors. Built with Next.js for SEO and performance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="grid-divider"></div></div>
+
+<!-- PROCESS -->
+<section style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">How I work</div>
+      <h2 class="section-heading">A process that ships.</h2>
+      <p class="section-sub">From first conversation to deployed product — here's exactly how a project runs.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Discovery</div>
+        <div class="step-desc">We align on goals, users, and scope before any code is written.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Planning</div>
+        <div class="step-desc">Architecture decisions, wireframes, and a clear feature list.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Development</div>
+        <div class="step-desc">Iterative builds with weekly updates and a staging environment.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Deployment</div>
+        <div class="step-desc">Production launch on Vercel with monitoring and CI/CD in place.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div class="step-title">Support</div>
+        <div class="step-desc">Post-launch help with bugs, changes, and ongoing feature work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="grid-divider"></div></div>
+
+<!-- ABOUT -->
+<section id="about" style="padding: 80px 0;">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-eyebrow">About</div>
+        <h2 class="section-heading">I build products, not just code.</h2>
+        <p>
+          I'm <strong>Mahir Ajmol Fahad</strong>, a Full Stack Developer focused on one thing: helping startups and small businesses get their ideas into production. That means writing code that works reliably, designing UIs that users actually understand, and making decisions that serve the product — not just the current sprint.
+        </p>
+        <p>
+          My stack centers around <strong>Next.js, TypeScript, Tailwind CSS, and Supabase</strong> because these tools let me ship fast without accumulating technical debt. I care deeply about application architecture, security, and the kind of code quality that makes a codebase easy to hand off or grow a team around.
+        </p>
+        <p>
+          When I take on a project, I think about what you're trying to accomplish, not just what you've asked me to build. That difference matters — especially early in a startup's life.
+        </p>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 8px;">Start a conversation →</a>
+      </div>
+
+      <div>
+        <div class="about-card">
+          <div class="about-card-title">Core skills</div>
+          <div class="skill-row">
+            <span class="skill-chip">Next.js</span>
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">TypeScript</span>
+            <span class="skill-chip">Tailwind CSS</span>
+            <span class="skill-chip">Supabase</span>
+            <span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">REST APIs</span>
+            <span class="skill-chip">Auth / RLS</span>
+            <span class="skill-chip">Vercel</span>
+            <span class="skill-chip">Git / CI</span>
+          </div>
+          <div class="divider"></div>
+          <div class="about-card-title">Quick facts</div>
+          <div class="quick-stat"><span class="qs-label">Focus</span><span class="qs-value">Full Stack Development</span></div>
+          <div class="quick-stat"><span class="qs-label">Preferred projects</span><span class="qs-value">SaaS & MVPs</span></div>
+          <div class="quick-stat"><span class="qs-label">Availability</span><span class="qs-value" style="color:#16A34A;">Open to work</span></div>
+          <div class="quick-stat"><span class="qs-label">Response time</span><span class="qs-value">Within 24 hours</span></div>
+          <div class="divider"></div>
+          <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-secondary" style="width:100%; justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="grid-divider"></div></div>
+
+<!-- CONTACT -->
+<section id="contact" style="padding: 80px 0 96px;">
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-emoji">✉️</div>
+      <h2 class="contact-heading">Got a startup idea?</h2>
+      <p class="contact-sub">I work with founders and business owners to build their products from scratch. If you have something you want to build, I'd love to hear about it. No commitment required — just a conversation.</p>
+      <div class="contact-links">
+        <a href="mailto:mahir@example.com" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          mahir@example.com
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2024 Mahir Ajmol Fahad. Built with Next.js & Vercel.</div>
+    <div class="footer-links">
+      <a href="https://github.com">GitHub</a>
+      <a href="https://linkedin.com">LinkedIn</a>
+      <a href="mailto:mahir@example.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth active nav on case study scroll
+  const caseNavItems = document.querySelectorAll('.case-nav-item');
+  const caseSections = document.querySelectorAll('.case-section[id]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        caseNavItems.forEach(a => a.classList.remove('active'));
+        const activeLink = document.querySelector(`.case-nav-item[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  caseSections.forEach(s => observer.observe(s));
+
+  // Scroll-triggered fade-in for non-hero elements
+  const animEl = document.querySelectorAll('.service-card, .process-step, .feature-item, .stack-badge');
+  const aObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        aObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  animEl.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = `opacity 0.4s ease ${(i % 6) * 0.07}s, transform 0.4s ease ${(i % 6) * 0.07}s`;
+    aObserver.observe(el);
+  });
+</script>
+</body>
+</html>
